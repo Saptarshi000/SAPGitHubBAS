@@ -1,0 +1,44 @@
+<mvc:View 
+    controllerName="chartso.controller.View1"
+    xmlns:controls="sap.viz.ui5.controls"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns="sap.m"
+    >
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <controls:VizFrame id="_IDGenVizFrame1" vizType="line">
+                <controls:dataset>
+                    <viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{/Heat}">
+                        <viz.data:dimensions>
+                            <viz.data:DimensionDefinition id="_IDGenDimensionDefinition1"
+                                name="Name"
+                                value="{month}"
+                            />
+                        </viz.data:dimensions>
+                        <viz.data:measures>
+                            <viz.data:MeasureDefinition id="_IDGenMeasureDefinition1"
+                                name="Cost"
+                                value="{cost}"
+                            />
+                        </viz.data:measures>
+                    </viz.data:FlattenedDataset>
+                </controls:dataset>
+                <controls:feeds>
+                    <viz.feeds:FeedItem id="_IDGenFeedItem1"
+                        type="Dimension"
+                        uid="categoryAxis"
+                        values="Name"
+                    />
+                    <viz.feeds:FeedItem id="_IDGenFeedItem2"
+                        type="Measure"
+                        uid="valueAxis"
+                        values="Cost"
+                    />
+                </controls:feeds>
+            </controls:VizFrame>
+        </content>
+    </Page>
+</mvc:View>
