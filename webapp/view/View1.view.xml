@@ -9,7 +9,7 @@
     >
     <Page id="page" title="{i18n>title}">
         <content>
-            <controls:VizFrame id="_IDGenVizFrame1" vizType="line">
+            <!-- <controls:VizFrame id="_IDGenVizFrame1" vizType="line">
                 <controls:dataset>
                     <viz.data:FlattenedDataset id="_IDGenFlattenedDataset1" data="{/Heat}">
                         <viz.data:dimensions>
@@ -38,7 +38,7 @@
                         values="Cost"
                     />
                 </controls:feeds>
-            </controls:VizFrame>
+            </controls:VizFrame> -->
         </content>
     </Page>
 </mvc:View>
