@@ -1,17 +1,19 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/BusyIndicator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel, BusyIndicator) {
         "use strict";
         var dataArr = [];
 
         return Controller.extend("chartso.controller.View1", {
             onInit: function () {
                 this.checkData();
+                BusyIndicator.show();
                 // var jModel = new JSONModel();
                 // // jModel.setData({Heat:[
                 // //     {Month: 'January', Temperature:'20'},
@@ -23,6 +25,10 @@ sap.ui.define([
 
                 //  var vizObj = this.byId("_IDGenVizFrame1");
                 //  vizObj.setModel(jModel);
+
+                // setTimeout(() => {
+                //     BusyIndicator.hide();
+                // }, 3000);
             },
              checkData(){
                 var that = this;
@@ -55,6 +61,7 @@ sap.ui.define([
                         var vizObj = that.getView().byId("_IDGenVizFrame1");
                         vizObj.setModel(kModel);
 
+                        BusyIndicator.hide();
                     },
                     error: function(oError)
                     {
